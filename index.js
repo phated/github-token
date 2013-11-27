@@ -18,24 +18,20 @@ var baseClient = rest
   .chain(errorCode)
   .chain(entity);
 
+function defaults(config){
+  config = config || {};
+
+  config.githubClient = config.githubClient || process.env.GITHUB_CLIENT;
+  config.githubSecret = config.githubSecret || process.env.GITHUB_SECRET;
+  config.baseURL = config.baseURL || process.env.GITHUB_BASE_URL;
+  config.callbackURI = config.callbackURI || process.env.GITHUB_CALLBACK_URI || '/github/callback';
+  config.scope = config.scope || process.env.GITHUB_SCOPE || 'user';
+
+  return config;
+}
+
 module.exports = function(config){
-  if(!config){
-    config = {
-      githubClient: process.env.GITHUB_CLIENT,
-      githubSecret: process.env.GITHUB_SECRET,
-      baseURL: process.env.GITHUB_BASE_URL,
-      callbackURI: process.env.GITHUB_CALLBACK_URI,
-      scope: process.env.GITHUB_SCOPE
-    };
-  }
-
-  if(!config.callbackURI){
-    config.callbackURI = '/github/callback';
-  }
-
-  if(!config.scope){
-    config.scope = 'user';
-  }
+  config = defaults(config);
 
   var state = crypto.randomBytes(8).toString('hex');
 

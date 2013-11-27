@@ -18,21 +18,22 @@ var githubToken = require('github-token')({
   callbackURI: '/callback',
   scope: 'user' // optional, default scope is set to user
 });
+
+// environment variables
+var githubToken = require('github-token')();
 ```
 
 Environment variables are used if a config object isn't passed, and include
 
-`GITHUB_CLIENT`
-`GITHUB_SECRET`
-`GITHUB_BASE_URL`
-`GITHUB_CALLBACK_URI`
-`GITHUB_SCOPE`
-
-__note:__ environment variables are only used if NO config object is passed.  This may change in the future, but easiest implemenation for now.
+* `GITHUB_CLIENT`
+* `GITHUB_SECRET`
+* `GITHUB_BASE_URL`
+* `GITHUB_CALLBACK_URI`
+* `GITHUB_SCOPE`
 
 ### login
 
-`login` is passed the request and response objects, and redirects to github login
+`login` is passed the request and response objects, and redirects to GitHub OAuth login
 
 ```js
 require('http').createServer(function(req, res){
