@@ -1,0 +1,27 @@
+{
+  "name": "github-token",
+  "version": "0.0.0",
+  "description": "Login with GitHub and retrieve an access token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/phated/github-token"
+  },
+  "keywords": [
+    "github",
+    "oauth",
+    "access token"
+  ],
+  "author": "Blaine Bublitz <blaine@iceddev.com> (http://iceddev.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phated/github-token/issues"
+  },
+  "dependencies": {
+    "rest": "~1.0.0",
+    "when": "~2.6.0"
+  }
+}
