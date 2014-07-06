@@ -1,6 +1,6 @@
 {
   "name": "github-token",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Login with GitHub and retrieve an access token",
   "main": "index.js",
   "scripts": {
