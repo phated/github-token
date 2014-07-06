@@ -36,7 +36,7 @@ module.exports = function(config){
   var state = crypto.randomBytes(8).toString('hex');
 
   var urlObj = url.parse(config.baseURL);
-  urlObj.pathname = path.join(urlObj.pathname, config.callbackURI);
+  urlObj.pathname = path.join(urlObj.pathname, config.callbackURI).replace(path.sep, '/'); // windows support
   var redirectURI = url.format(urlObj);
 
   var loginRedirect = url.format({
